@@ -1,0 +1,140 @@
+@import './tokens.css';
+
+/* Dashboard layout — full viewport, no body scroll */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100dvh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Dashboard grid */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dashboard-main {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  height: 100dvh;
+}
+
+/* Monospace numbers */
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* XP bar animation */
+.xp-fill {
+  transition: width 600ms ease-out;
+}
+
+/* Toast */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+.toast-enter {
+  animation: toast-in 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-exit {
+  animation: toast-out 200ms ease-in forwards;
+}
+
+/* Checkbox animation */
+@keyframes check-fill {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Streak glow */
+@keyframes streak-glow {
+  0%, 100% { text-shadow: none; }
+  50% { text-shadow: 0 0 12px var(--color-accent); }
+}
+
+/* Pulsing dot for Apple Health */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Level badge pop */
+@keyframes level-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Card hover */
+.card-hover {
+  transition: border-color var(--transition-micro) var(--ease-out);
+}
+.card-hover:hover {
+  border-color: var(--text-tertiary);
+}
+
+/* Budget bar */
+.budget-bar-fill {
+  transition: width 600ms ease-out;
+}
+
+/* Habit grid cell */
+.habit-cell-filled {
+  background-color: var(--color-primary);
+}
+
+/* Content visibility for performance */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 200px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Drag and drop zone */
+.drop-zone {
+  border: 2px dashed var(--surface-3);
+  border-radius: var(--radius-dashboard-card);
+  background-color: var(--surface-1);
+  transition: border-color var(--transition-standard) ease, background-color var(--transition-standard) ease;
+}
+
+.drop-zone.drag-over {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 5%, var(--surface-1));
+}
