@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 import { FINANCIAL_SUMMARY, MONTHLY_CHART_DATA, TRANSACTIONS } from '../data.js';
 
-// ---- Custom Tooltip for Chart ----
+// ---- Custom Tooltip for Chart (spec section 17) ----
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   const spent = payload.find((p) => p.dataKey === 'spent')?.value || 0;
@@ -18,9 +18,10 @@ function ChartTooltip({ active, payload, label }) {
       padding: '10px 14px',
       fontSize: 'var(--text-caption)',
       fontFamily: 'var(--font-mono)',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
     }}>
       <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: 6 }}>{label}</div>
-      <div style={{ color: overBudget ? 'var(--color-warning)' : 'var(--color-primary)' }}>
+      <div style={{ color: overBudget ? 'var(--color-accent)' : 'var(--color-primary)' }}>
         Spent: ${spent.toLocaleString()}
       </div>
       <div style={{ color: 'var(--text-tertiary)' }}>Budget: ${budget.toLocaleString()}</div>
@@ -31,7 +32,9 @@ function ChartTooltip({ active, payload, label }) {
 // ---- Budget Gauge ----
 function BudgetGauge({ spent, total, label }) {
   const pct = Math.min((spent / total) * 100, 100);
-  const color = pct < 80 ? 'var(--color-success)' : pct < 100 ? 'var(--color-warning)' : 'var(--color-error)';
+  // Blue default fill per spec ("Blue as default data color").
+  // Orange (accent) when approaching budget (>=80%), red when over (>=100%).
+  const color = pct < 80 ? 'var(--color-primary)' : pct < 100 ? 'var(--color-accent)' : 'var(--color-error)';
 
   return (
     <div style={{ marginBottom: 'var(--space-3)' }}>
@@ -49,10 +52,12 @@ function BudgetGauge({ spent, total, label }) {
       }}>
         <div style={{
           height: '100%',
-          width: `${pct}%`,
+          width: '100%',
           backgroundColor: color,
           borderRadius: '999px',
-          transition: 'width 600ms ease-out',
+          transform: `scaleX(${pct / 100})`,
+          transformOrigin: 'left',
+          transition: 'transform 600ms ease-out',
         }}/>
       </div>
     </div>
@@ -150,7 +155,7 @@ function TransactionsTable({ data }) {
                   color: 'var(--text-secondary)',
                   backgroundColor: 'var(--surface-2)',
                   padding: '2px 8px',
-                  borderRadius: '999px',
+                  borderRadius: 'var(--radius-button)',
                 }}>
                   {row.category}
                 </span>
@@ -251,10 +256,10 @@ export default function FinancesPage() {
             <span style={{
               fontSize: 'var(--text-caption)',
               fontWeight: 500,
-              color: 'var(--color-success)',
-              backgroundColor: 'color-mix(in srgb, var(--color-success) 12%, transparent)',
+              color: 'var(--color-primary)',
+              backgroundColor: 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
               padding: '3px 10px',
-              borderRadius: '999px',
+              borderRadius: 'var(--radius-button)',
             }}>
               On Track
             </span>
@@ -263,20 +268,22 @@ export default function FinancesPage() {
           {/* Main gauge */}
           <div style={{ marginBottom: 'var(--space-5)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--space-2)' }}>
-              <span style={{ fontSize: 'var(--text-h4)', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', fontVariantNumeric: 'tabular-nums' }}>
+              <span style={{ fontSize: 'var(--text-h4)', fontWeight: 700, color: 'var(--text-primary)', fontVariantNumeric: 'tabular-nums' }}>
                 ${summary.spentThisMonth.toLocaleString()}
               </span>
-              <span style={{ fontSize: 'var(--text-small)', color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontVariantNumeric: 'tabular-nums', alignSelf: 'flex-end' }}>
+              <span style={{ fontSize: 'var(--text-small)', color: 'var(--text-tertiary)', fontVariantNumeric: 'tabular-nums', alignSelf: 'flex-end' }}>
                 / ${summary.monthlyBudget.toLocaleString()}
               </span>
             </div>
             <div style={{ height: 8, backgroundColor: 'var(--surface-2)', borderRadius: '999px', overflow: 'hidden' }}>
               <div style={{
                 height: '100%',
-                width: `${budgetPct}%`,
-                backgroundColor: 'var(--color-success)',
+                width: '100%',
+                backgroundColor: 'var(--color-primary)',
                 borderRadius: '999px',
-                transition: 'width 600ms ease-out',
+                transform: `scaleX(${budgetPct / 100})`,
+                transformOrigin: 'left',
+                transition: 'transform 600ms ease-out',
               }}/>
             </div>
             <div style={{ fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', marginTop: 'var(--space-1)' }}>
@@ -328,15 +335,15 @@ export default function FinancesPage() {
         </h2>
         <ResponsiveContainer width="100%" height={200}>
           <BarChart data={MONTHLY_CHART_DATA} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#3F3F46" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="color-mix(in srgb, #3F3F46 40%, transparent)" vertical={false} />
             <XAxis
               dataKey="month"
-              tick={{ fill: '#71717A', fontSize: 12 }}
+              tick={{ fill: '#71717A', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#71717A', fontSize: 12 }}
+              tick={{ fill: '#71717A', fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}

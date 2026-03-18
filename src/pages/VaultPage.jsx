@@ -1,5 +1,16 @@
 import React from 'react';
+import { Terminal, ClipboardList, Palette, Activity, PenTool, Database } from 'lucide-react';
 import { VAULT_STATS, VAULT_MOCS } from '../data.js';
+
+// Map MOC names to Lucide icons (replacing emoji per spec: "No emoji in UI. Lucide only.")
+const MOC_ICONS = {
+  'Claude Mastery': Terminal,
+  'Product Management': ClipboardList,
+  'Creative Studio': Palette,
+  'Life Systems': Activity,
+  'Design Team': PenTool,
+  'Vault': Database,
+};
 
 function StatCard({ label, value }) {
   return (
@@ -62,7 +73,12 @@ function MOCCard({ moc }) {
       }}/>
 
       <div style={{ marginTop: 'var(--space-2)' }}>
-        <div style={{ fontSize: 22, marginBottom: 'var(--space-2)', lineHeight: 1 }}>{moc.icon}</div>
+        {(() => {
+          const IconComponent = MOC_ICONS[moc.name];
+          return IconComponent
+            ? <IconComponent size={20} style={{ color: moc.color, marginBottom: 'var(--space-2)' }} />
+            : <Database size={20} style={{ color: moc.color, marginBottom: 'var(--space-2)' }} />;
+        })()}
         <h3 style={{
           fontSize: 'var(--text-small)',
           fontWeight: 600,

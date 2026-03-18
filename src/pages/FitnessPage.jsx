@@ -1,35 +1,6 @@
 import React, { useState } from 'react';
+import { Moon, Heart, Clock } from 'lucide-react';
 import { WORKOUT_WEEK } from '../data.js';
-
-const SPLIT_COLORS = {
-  Push: 'var(--color-primary)',
-  Pull: '#A78BFA',
-  Legs: '#22C55E',
-  Rest: 'var(--text-tertiary)',
-};
-
-const STATUS_STYLES = {
-  completed: {
-    background: 'color-mix(in srgb, var(--color-primary) 15%, transparent)',
-    border: '1px solid color-mix(in srgb, var(--color-primary) 40%, transparent)',
-    color: 'var(--color-primary)',
-  },
-  today: {
-    background: 'color-mix(in srgb, var(--color-primary) 8%, transparent)',
-    border: '2px solid var(--color-primary)',
-    color: 'var(--color-primary)',
-  },
-  scheduled: {
-    background: 'transparent',
-    border: '1px solid var(--surface-3)',
-    color: 'var(--text-tertiary)',
-  },
-  rest: {
-    background: 'transparent',
-    border: '1px dashed var(--surface-3)',
-    color: 'var(--text-tertiary)',
-  },
-};
 
 export default function FitnessPage() {
   const [selectedDay, setSelectedDay] = useState(null);
@@ -49,7 +20,7 @@ export default function FitnessPage() {
         <p style={{ fontSize: 'var(--text-small)', color: 'var(--text-secondary)' }}>Week of Feb 25 – Mar 3, 2026 · PPL Split</p>
       </div>
 
-      {/* Weekly Split Row */}
+      {/* Weekly PPL Grid */}
       <div style={{
         backgroundColor: 'var(--surface-1)',
         border: '1px solid var(--surface-3)',
@@ -63,22 +34,45 @@ export default function FitnessPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 'var(--space-2)' }}>
           {WORKOUT_WEEK.map((workout) => {
             const isSelected = selectedDay === workout.day;
-            const styles = STATUS_STYLES[workout.status];
             const isClickable = workout.status === 'completed';
+            const isToday = workout.status === 'today';
+            const isRest = workout.status === 'rest';
+            const isFuture = workout.status === 'scheduled';
 
             return (
               <div
                 key={workout.day}
+                role={isClickable ? 'button' : undefined}
+                tabIndex={isClickable ? 0 : undefined}
+                aria-label={`${workout.day} — ${workout.split}${workout.status === 'completed' ? ' (completed)' : workout.status === 'rest' ? ' (rest day)' : workout.status === 'today' ? ' (today)' : ' (scheduled)'}`}
                 onClick={() => isClickable && setSelectedDay(isSelected ? null : workout.day)}
+                onKeyDown={(e) => {
+                  if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    setSelectedDay(isSelected ? null : workout.day);
+                  }
+                }}
                 style={{
-                  ...styles,
                   borderRadius: 'var(--radius-button)',
                   padding: 'var(--space-3) var(--space-2)',
                   textAlign: 'center',
                   cursor: isClickable ? 'pointer' : 'default',
                   transition: 'all 150ms ease',
-                  outline: isSelected ? `2px solid var(--color-primary)` : 'none',
+                  outline: isSelected ? '2px solid var(--color-primary)' : 'none',
                   outlineOffset: 2,
+                  // Completed = blue fill
+                  backgroundColor: workout.status === 'completed'
+                    ? 'color-mix(in srgb, var(--color-primary) 15%, transparent)'
+                    : 'transparent',
+                  // Today = blue border no fill; Rest = solid surface-3; Future = dashed
+                  border: isToday
+                    ? '2px solid var(--color-primary)'
+                    : workout.status === 'completed'
+                    ? '1px solid color-mix(in srgb, var(--color-primary) 40%, transparent)'
+                    : isFuture
+                    ? '1px dashed var(--surface-3)'
+                    : '1px solid var(--surface-3)',
+                  opacity: isFuture ? 0.6 : 1,
                 }}
                 onMouseEnter={(e) => {
                   if (isClickable && !isSelected) {
@@ -87,7 +81,7 @@ export default function FitnessPage() {
                 }}
                 onMouseLeave={(e) => {
                   if (isClickable && !isSelected) {
-                    e.currentTarget.style.borderColor = STATUS_STYLES[workout.status].border.includes('color-mix')
+                    e.currentTarget.style.borderColor = workout.status === 'completed'
                       ? 'color-mix(in srgb, var(--color-primary) 40%, transparent)'
                       : 'var(--surface-3)';
                   }
@@ -102,7 +96,7 @@ export default function FitnessPage() {
                   borderRadius: '50%',
                   backgroundColor: workout.status === 'completed'
                     ? 'color-mix(in srgb, var(--color-primary) 20%, transparent)'
-                    : workout.status === 'today'
+                    : isToday
                     ? 'color-mix(in srgb, var(--color-primary) 10%, transparent)'
                     : 'var(--surface-2)',
                   display: 'flex',
@@ -114,17 +108,21 @@ export default function FitnessPage() {
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M3 8l3.5 3.5 6.5-7"/>
                     </svg>
-                  ) : workout.status === 'today' ? (
+                  ) : isToday ? (
                     <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--color-primary)' }}/>
-                  ) : workout.status === 'rest' ? (
-                    <span style={{ fontSize: 10, color: 'var(--text-tertiary)' }}>ZZ</span>
+                  ) : isRest ? (
+                    <Moon size={14} color="var(--text-tertiary)" />
                   ) : (
                     <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'var(--surface-3)' }}/>
                   )}
                 </div>
                 <div style={{
                   fontSize: 'var(--text-caption)',
-                  color: SPLIT_COLORS[workout.split] || 'var(--text-tertiary)',
+                  color: workout.status === 'completed'
+                    ? 'var(--color-primary)'
+                    : isToday
+                    ? 'var(--color-primary)'
+                    : 'var(--text-tertiary)',
                   fontWeight: 500,
                   lineHeight: 1.2,
                 }}>
@@ -134,16 +132,9 @@ export default function FitnessPage() {
             );
           })}
         </div>
-        {selectedDay && (
-          <div style={{ marginTop: 'var(--space-3)', fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', textAlign: 'center' }}>
-            Click a completed day to see exercises
-          </div>
-        )}
-        {!selectedDay && (
-          <div style={{ marginTop: 'var(--space-3)', fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', textAlign: 'center' }}>
-            Click a completed day (Mon, Tue) to view exercises
-          </div>
-        )}
+        <div style={{ marginTop: 'var(--space-3)', fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', textAlign: 'center' }}>
+          {selectedDay ? 'Click a completed day to see exercises' : 'Click a completed day to view exercises'}
+        </div>
       </div>
 
       {/* Workout Detail */}
@@ -213,55 +204,64 @@ export default function FitnessPage() {
         </div>
       )}
 
-      {/* Apple Health Coming Soon */}
+      {/* Apple Health Sync — Coming Soon pattern (spec section 19) */}
       <div style={{
         backgroundColor: 'var(--surface-1)',
         border: '1px solid var(--surface-3)',
         borderRadius: 'var(--radius-dashboard-card)',
-        padding: 'var(--space-5)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: 'var(--space-4)',
+        padding: 'var(--space-6)',
+        textAlign: 'center',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-          <div style={{
-            width: 36,
-            height: 36,
-            borderRadius: '50%',
-            backgroundColor: 'color-mix(in srgb, var(--color-error) 12%, transparent)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
-          }}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M9 2C9 2 6 3.5 6 7C6 9.5 7.5 11 9 11C10.5 11 12 9.5 12 7C12 3.5 9 2 9 2Z" fill="#EF4444" opacity="0.8"/>
-              <path d="M9 7V16" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M6 10C4 10.5 3 12.5 3 14.5C3 15.5 3.5 16 4.5 16H13.5C14.5 16 15 15.5 15 14.5C15 12.5 14 10.5 12 10" stroke="#EF4444" strokeWidth="1.2" strokeLinecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <div style={{ fontSize: 'var(--text-small)', fontWeight: 500, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-              Apple Health Sync
-            </div>
-            <div style={{ fontSize: 'var(--text-caption)', color: 'var(--text-secondary)', marginTop: 2 }}>
-              Connect workouts, sleep, and activity data
-            </div>
-          </div>
+        {/* Icon */}
+        <div style={{
+          width: 48,
+          height: 48,
+          borderRadius: 'var(--radius-dashboard-card)',
+          backgroundColor: 'color-mix(in srgb, var(--color-error) 10%, transparent)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '0 auto var(--space-4)',
+        }}>
+          <Heart size={24} color="var(--color-error)" />
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-          <div
-            className="pulse-dot"
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-primary)',
-              flexShrink: 0,
-            }}
-          />
-          <span style={{ fontSize: 'var(--text-caption)', color: 'var(--text-secondary)' }}>Coming Soon</span>
+
+        {/* Title */}
+        <h3 style={{
+          fontSize: 'var(--text-h4)',
+          fontWeight: 600,
+          color: 'var(--text-primary)',
+          marginBottom: 'var(--space-2)',
+        }}>
+          Apple Health Sync
+        </h3>
+
+        {/* Description */}
+        <p style={{
+          fontSize: 'var(--text-body)',
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-4)',
+          maxWidth: 360,
+          margin: '0 auto var(--space-4)',
+          lineHeight: 1.6,
+        }}>
+          Connect workouts, sleep, and activity data from Apple Health.
+        </p>
+
+        {/* Coming Soon badge */}
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 'var(--space-2)',
+          padding: 'var(--space-2) var(--space-4)',
+          backgroundColor: 'var(--surface-2)',
+          borderRadius: 'var(--radius-button)',
+          border: '1px solid var(--surface-3)',
+        }}>
+          <Clock size={14} color="var(--text-secondary)" />
+          <span style={{ fontSize: 'var(--text-small)', color: 'var(--text-secondary)', fontWeight: 500 }}>
+            Coming Soon
+          </span>
         </div>
       </div>
 

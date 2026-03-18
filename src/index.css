@@ -33,9 +33,10 @@ html, body {
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* XP bar animation */
+/* XP bar animation (GPU-only: scaleX instead of width) */
 .xp-fill {
-  transition: width 600ms ease-out;
+  transform-origin: left;
+  transition: transform 600ms ease-out;
 }
 
 /* Toast */
@@ -61,6 +62,23 @@ html, body {
 @keyframes check-fill {
   from { transform: scale(0); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+/* Checkmark draw-in animation (SVG stroke-dasharray) */
+.checkmark-draw path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: checkmark-draw-in 200ms ease-out forwards;
+}
+
+@keyframes checkmark-draw-in {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Inline feedback animation */
+@keyframes feedback-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Streak glow */
@@ -94,9 +112,10 @@ html, body {
   border-color: var(--text-tertiary);
 }
 
-/* Budget bar */
+/* Budget bar (GPU-only: scaleX instead of width) */
 .budget-bar-fill {
-  transition: width 600ms ease-out;
+  transform-origin: left;
+  transition: transform 600ms ease-out;
 }
 
 /* Habit grid cell */

@@ -1,17 +1,85 @@
-import React, { useState } from 'react';
-import { USER_PROFILE, HABITS_TODAY, XP_TODAY, XP_SOURCES } from '../data.js';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Flame, Dumbbell, Wallet, Zap } from 'lucide-react';
+import { USER_PROFILE, HABITS_TODAY, XP_TODAY, XP_SOURCES, XP_LEVELS } from '../data.js';
 import XPBar from '../components/XPBar.jsx';
 import MetricCard from '../components/MetricCard.jsx';
-import { useToast } from '../components/Toast.jsx';
 
+// ---- Greeting System (spec section 19) ----
+function getGreeting(name) {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 12) return `Good morning, ${name}`;
+  if (hour >= 12 && hour < 18) return `Good afternoon, ${name}`;
+  if (hour >= 18 && hour < 24) return `Good evening, ${name}`;
+  return `Still at it, ${name}?`;
+}
+
+function getContextLine(profile, completedCount, totalHabits) {
+  const hour = new Date().getHours();
+  const remaining = totalHabits - completedCount;
+
+  if (hour >= 5 && hour < 12) {
+    // Morning: streak-focused
+    if (profile.streak >= 10) return `${profile.streak}-day streak. Your best yet.`;
+    return `${profile.streak}-day streak active.`;
+  }
+  if (hour >= 12 && hour < 18) {
+    // Afternoon: quest progress
+    return `${completedCount}/${totalHabits} quests done today.`;
+  }
+  if (hour >= 18 && hour < 24) {
+    // Evening: remaining quests
+    if (remaining === 0) return 'All quests complete. Well done.';
+    return `${remaining} quest${remaining === 1 ? '' : 's'} remaining tonight.`;
+  }
+  // Late night: XP distance
+  const nextLevel = XP_LEVELS.find((l) => l.level === profile.level + 1);
+  if (nextLevel) {
+    const xpToNext = nextLevel.cumulativeXP - profile.currentXP;
+    return `${xpToNext.toLocaleString()} XP to ${nextLevel.title}.`;
+  }
+  return '';
+}
+
+// ---- Inline Feedback Component ----
+function InlineFeedback({ message, visible, color }) {
+  return (
+    <span
+      style={{
+        fontSize: 'var(--text-small)',
+        fontWeight: 500,
+        color: color || 'var(--color-primary-muted)',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(-4px)',
+        transition: visible
+          ? 'opacity 200ms ease-out, transform 200ms ease-out'
+          : 'opacity 300ms ease, transform 300ms ease',
+        pointerEvents: 'none',
+        whiteSpace: 'nowrap',
+        marginLeft: 'var(--space-3)',
+      }}
+      aria-live="polite"
+    >
+      {message}
+    </span>
+  );
+}
+
+// ---- Quest Item with Inline Feedback ----
 function QuestItem({ habit, onComplete }) {
   const [animating, setAnimating] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const handleCheck = () => {
     if (habit.completed) return;
     setAnimating(true);
     onComplete(habit.id, habit.xpReward);
+
+    // Show inline feedback
+    setFeedback(`+${habit.xpReward} XP · ${habit.name}`);
     setTimeout(() => setAnimating(false), 300);
+
+    // Hide after 2.5s visible + 300ms fade
+    setTimeout(() => setFeedback(null), 2800);
   };
 
   return (
@@ -21,32 +89,42 @@ function QuestItem({ habit, onComplete }) {
         alignItems: 'center',
         gap: 'var(--space-3)',
         padding: '10px var(--space-4)',
+        height: 48,
         borderRadius: 'var(--radius-button)',
         transition: 'background-color 150ms ease',
         cursor: habit.completed ? 'default' : 'pointer',
       }}
+      role="checkbox"
+      aria-checked={habit.completed}
+      aria-label={`${habit.name} — +${habit.xpReward} XP`}
+      tabIndex={0}
       onMouseEnter={(e) => {
-        if (!habit.completed) e.currentTarget.style.backgroundColor = 'var(--surface-2)';
+        if (!habit.completed) e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--surface-1) 50%, transparent)';
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.backgroundColor = 'transparent';
       }}
       onClick={handleCheck}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCheck();
+        }
+      }}
     >
-      {/* Checkbox */}
+      {/* Checkbox — 20x20, 4px rounded square */}
       <div
         style={{
           width: 20,
           height: 20,
           borderRadius: 4,
-          border: habit.completed ? 'none' : '1.5px solid var(--surface-3)',
+          border: habit.completed ? '2px solid var(--color-primary)' : '2px solid var(--surface-3)',
           backgroundColor: habit.completed ? 'var(--color-primary)' : 'transparent',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
-          transition: 'background-color 200ms ease, border-color 200ms ease',
-          transform: animating ? 'scale(0.9)' : 'scale(1)',
+          transition: 'background-color 150ms ease, border-color 150ms ease',
         }}
       >
         {habit.completed && (
@@ -59,36 +137,36 @@ function QuestItem({ habit, onComplete }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            style={{ animation: 'check-fill 200ms ease forwards' }}
+            className="checkmark-draw"
           >
-            <path d="M2 6l3 3 5-5"/>
+            <path d="M2 6l3 3 5-5" />
           </svg>
         )}
       </div>
 
-      {/* Label */}
+      {/* Label — dims on completion per spec */}
       <span style={{
-        fontSize: 'var(--text-small)',
-        color: habit.completed ? 'var(--text-tertiary)' : 'var(--text-primary)',
-        textDecoration: habit.completed ? 'line-through' : 'none',
+        fontSize: 'var(--text-body)',
+        color: habit.completed ? 'var(--text-secondary)' : 'var(--text-primary)',
         flex: 1,
         transition: 'color 200ms ease',
+        fontWeight: 400,
       }}>
         {habit.name}
       </span>
 
-      {/* XP badge */}
+      {/* Inline feedback (appears on completion) */}
+      {feedback && (
+        <InlineFeedback message={feedback} visible={!!feedback} />
+      )}
+
+      {/* XP value — turns blue when earned */}
       <span style={{
-        fontSize: 'var(--text-caption)',
-        fontFamily: 'var(--font-mono)',
-        color: habit.completed ? 'var(--text-tertiary)' : 'var(--color-primary)',
-        backgroundColor: habit.completed
-          ? 'color-mix(in srgb, var(--surface-3) 30%, transparent)'
-          : 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
-        padding: '2px 8px',
-        borderRadius: '999px',
+        fontSize: 'var(--text-small)',
+        fontWeight: habit.completed ? 500 : 400,
+        color: habit.completed ? 'var(--color-primary)' : 'var(--text-tertiary)',
         whiteSpace: 'nowrap',
-        transition: 'all 200ms ease',
+        transition: 'color 200ms ease',
       }}>
         +{habit.xpReward} XP
       </span>
@@ -97,23 +175,22 @@ function QuestItem({ habit, onComplete }) {
 }
 
 export default function HubPage() {
-  const { addToast } = useToast();
   const [habits, setHabits] = useState(HABITS_TODAY);
   const [earnedXP, setEarnedXP] = useState(XP_TODAY);
   const profile = USER_PROFILE;
 
   const completedCount = habits.filter((h) => h.completed).length;
 
-  const handleComplete = (id, xpReward) => {
+  const handleComplete = useCallback((id, xpReward) => {
     setHabits((prev) =>
       prev.map((h) => (h.id === id ? { ...h, completed: true } : h))
     );
     setEarnedXP((prev) => prev + xpReward);
-    addToast(`+${xpReward} XP earned`, 'xp');
-  };
+  }, []);
 
-  // Streak glow: milestone every 7 days
-  const isStreakMilestone = profile.streak % 7 === 0;
+  // Greeting
+  const greeting = getGreeting(profile.name);
+  const contextLine = getContextLine(profile, completedCount, habits.length);
 
   return (
     <div style={{ padding: 'var(--space-8)', maxWidth: 900, margin: '0 auto' }}>
@@ -140,31 +217,18 @@ export default function HubPage() {
               color: 'var(--text-primary)',
               lineHeight: 1.2,
             }}>
-              Good morning, {profile.name}
+              {greeting}
             </h1>
-            {/* Level badge */}
-            <div style={{
-              backgroundColor: 'color-mix(in srgb, var(--color-primary) 15%, transparent)',
-              border: '1px solid color-mix(in srgb, var(--color-primary) 30%, transparent)',
-              borderRadius: 'var(--radius-button)',
-              padding: '3px 10px',
-              fontSize: 'var(--text-caption)',
-              fontWeight: 600,
-              color: 'var(--color-primary)',
-              fontVariantNumeric: 'tabular-nums',
-            }}>
-              Lv. {profile.level}
-            </div>
           </div>
           <div style={{
             fontSize: 'var(--text-small)',
             color: 'var(--text-secondary)',
           }}>
-            {profile.todayDate} · {profile.levelTitle}
+            {contextLine}
           </div>
         </div>
 
-        {/* Streak display */}
+        {/* Streak display — Lucide Flame, orange number, multiplier pill */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -174,18 +238,14 @@ export default function HubPage() {
           borderRadius: 'var(--radius-dashboard-card)',
           padding: 'var(--space-4) var(--space-5)',
         }}>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="var(--color-accent)" opacity="0.9">
-            <path d="M11 2C8 7 6 8 6 11.5A5 5 0 0016 11.5C16 8 14 7 11 2Z"/>
-            <path d="M11 8C9.5 10.5 9 11.5 9 13A2 2 0 0013 13C13 11.5 12.5 10.5 11 8Z" fill="color-mix(in srgb, var(--color-accent) 50%, white)"/>
-          </svg>
+          <Flame size={20} color="var(--color-accent)" style={{ flexShrink: 0 }} />
           <div>
             <div style={{
               fontSize: 'var(--text-h4)',
               fontWeight: 700,
-              color: 'var(--color-accent)',
+              color: 'var(--color-accent-muted)',
               fontVariantNumeric: 'tabular-nums',
               lineHeight: 1,
-              animation: isStreakMilestone ? 'streak-glow 2s ease-in-out 1' : 'none',
             }}>
               {profile.streak}
             </div>
@@ -193,13 +253,14 @@ export default function HubPage() {
               day streak
             </div>
           </div>
+          {/* Multiplier pill — spec-approved game-style modifier exception */}
           <div style={{
             backgroundColor: 'color-mix(in srgb, var(--color-accent) 15%, transparent)',
             borderRadius: '999px',
             padding: '2px 8px',
             fontSize: 'var(--text-caption)',
             fontWeight: 600,
-            color: 'var(--color-accent)',
+            color: 'var(--color-accent-muted)',
           }}>
             {profile.streakMultiplier}x
           </div>
@@ -223,56 +284,35 @@ export default function HubPage() {
         />
       </div>
 
-      {/* Quick Stats Row */}
+      {/* Quick Stats Row — Hero variant for streak */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
         gap: 'var(--space-4)',
         marginBottom: 'var(--space-6)',
       }}>
+        {/* Hero: Current Streak — spans 2 columns */}
+        <MetricCard
+          hero
+          label="Current Streak"
+          value={`${profile.streak} days`}
+          sub={profile.streak >= 10 ? 'Your best yet.' : `${profile.streakMultiplier}x multiplier active`}
+          valueColor="var(--color-accent)"
+          icon={<Flame size={24} />}
+        />
+        {/* Standard metrics */}
         <MetricCard
           label="Workouts This Week"
           value="2 / 3"
           sub="PPL split"
-          icon={
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M2 8h1.5m9 0H14M4 8a1.5 1.5 0 011.5-1.5H6M12 8a1.5 1.5 0 00-1.5-1.5H10M6 6.5V5a.75.75 0 011.5 0v6A.75.75 0 016 11V9.5M10 6.5V5a.75.75 0 011.5 0v6A.75.75 0 0110 11V9.5"/>
-            </svg>
-          }
+          icon={<Dumbbell size={16} />}
         />
         <MetricCard
           label="Budget Health"
           value="On Track"
           sub="$1,247 of $3,800"
-          valueColor="var(--color-success)"
-          icon={
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M2 4a1 1 0 011-1h10a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/>
-              <path d="M8 7v1m-1.5-1h3"/>
-            </svg>
-          }
-        />
-        <MetricCard
-          label="Streak"
-          value={`${profile.streak} days`}
-          sub={`${profile.streakMultiplier}x multiplier active`}
-          valueColor="var(--color-accent)"
-          icon={
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--color-accent)" opacity="0.8">
-              <path d="M8 1.5C6 5 5 5.5 5 8A3 3 0 0011 8C11 5.5 10 5 8 1.5Z"/>
-            </svg>
-          }
-        />
-        <MetricCard
-          label="XP Today"
-          value={`+${earnedXP}`}
-          sub={`${completedCount}/${habits.length} quests done`}
           valueColor="var(--color-primary)"
-          icon={
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M8 2l1.8 3.6 4 .6-2.9 2.8.68 4L8 11l-3.58 1.88.68-4-2.9-2.8 4-.6z"/>
-            </svg>
-          }
+          icon={<Wallet size={16} />}
         />
       </div>
 
@@ -298,9 +338,7 @@ export default function HubPage() {
             alignItems: 'center',
             gap: 'var(--space-2)',
           }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-primary)" strokeWidth="1.5">
-              <path d="M13 5l-6 6-3-3"/>
-            </svg>
+            <Zap size={16} color="var(--color-primary)" />
             Today's Quests
           </h2>
           <span style={{

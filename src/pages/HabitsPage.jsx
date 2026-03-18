@@ -1,30 +1,41 @@
 import React, { useState } from 'react';
+import { Flame } from 'lucide-react';
 import { HABITS_LIST, HABIT_WEEK_GRID, HABIT_STREAKS } from '../data.js';
-import { useToast } from '../components/Toast.jsx';
 
 const DAYS = HABIT_WEEK_GRID.days;
-const DATES = HABIT_WEEK_GRID.dates;
 const TODAY_INDEX = HABIT_WEEK_GRID.todayIndex;
 
 export default function HabitsPage() {
-  const { addToast } = useToast();
   const [habits, setHabits] = useState(HABITS_LIST);
   const [completions, setCompletions] = useState(HABIT_WEEK_GRID.completions);
   const [streaks, setStreaks] = useState(HABIT_STREAKS);
   const [newHabitName, setNewHabitName] = useState('');
   const [newHabitXP, setNewHabitXP] = useState('25');
+  // Track inline feedback per habit
+  const [feedbackMap, setFeedbackMap] = useState({});
 
   const toggleCell = (habitId, dayIndex) => {
-    if (dayIndex > TODAY_INDEX) return; // can't complete future
+    if (dayIndex > TODAY_INDEX) return;
+    const wasComplete = completions[habitId]?.[dayIndex];
+
     setCompletions((prev) => {
       const row = [...(prev[habitId] || [])];
       row[dayIndex] = !row[dayIndex];
       return { ...prev, [habitId]: row };
     });
-    const wasComplete = completions[habitId]?.[dayIndex];
+
+    // Show inline feedback for newly completed
     if (!wasComplete) {
-      const xp = habits.find((h) => h.id === habitId)?.xpReward || 25;
-      addToast(`+${xp} XP earned`, 'xp');
+      const habit = habits.find((h) => h.id === habitId);
+      const xp = habit?.xpReward || 25;
+      setFeedbackMap((prev) => ({ ...prev, [habitId]: `+${xp} XP · ${habit.name}` }));
+      setTimeout(() => {
+        setFeedbackMap((prev) => {
+          const next = { ...prev };
+          delete next[habitId];
+          return next;
+        });
+      }, 2800); // 2.5s visible + 300ms fade
     }
   };
 
@@ -95,6 +106,7 @@ export default function HabitsPage() {
         {habits.map((habit, habitIdx) => {
           const row = completions[habit.id] || Array(7).fill(false);
           const streak = streaks[habit.id] || 0;
+          const hasFeedback = !!feedbackMap[habit.id];
 
           return (
             <div
@@ -111,14 +123,33 @@ export default function HabitsPage() {
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--surface-2) 40%, transparent)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
             >
-              {/* Habit name */}
+              {/* Habit name + inline feedback */}
               <div style={{ padding: '12px 0' }}>
-                <div style={{ fontSize: 'var(--text-small)', color: 'var(--text-primary)', fontWeight: 400 }}>
-                  {habit.name}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                  <span style={{ fontSize: 'var(--text-small)', color: 'var(--text-primary)', fontWeight: 400 }}>
+                    {habit.name}
+                  </span>
+                  {hasFeedback && (
+                    <span
+                      style={{
+                        fontSize: 'var(--text-small)',
+                        fontWeight: 500,
+                        color: 'var(--color-primary-muted)',
+                        opacity: 1,
+                        animation: 'feedback-in 200ms ease-out',
+                        whiteSpace: 'nowrap',
+                      }}
+                      aria-live="polite"
+                    >
+                      {feedbackMap[habit.id]}
+                    </span>
+                  )}
                 </div>
-                <div style={{ fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', marginTop: 1 }}>
-                  +{habit.xpReward} XP
-                </div>
+                {!hasFeedback && (
+                  <div style={{ fontSize: 'var(--text-caption)', color: 'var(--text-tertiary)', marginTop: 1 }}>
+                    +{habit.xpReward} XP
+                  </div>
+                )}
               </div>
 
               {/* Day cells */}
@@ -129,7 +160,17 @@ export default function HabitsPage() {
                 return (
                   <div
                     key={dayIdx}
+                    role="checkbox"
+                    aria-checked={done}
+                    aria-label={`${habit.name} — ${DAYS[dayIdx]}${isFuture ? ' (future)' : ''}`}
+                    tabIndex={isFuture ? -1 : 0}
                     onClick={() => !isFuture && toggleCell(habit.id, dayIdx)}
+                    onKeyDown={(e) => {
+                      if (!isFuture && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault();
+                        toggleCell(habit.id, dayIdx);
+                      }
+                    }}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -143,7 +184,7 @@ export default function HabitsPage() {
                       width: 24,
                       height: 24,
                       borderRadius: 4,
-                      backgroundColor: done ? 'var(--color-primary)' : isFuture ? 'var(--surface-2)' : 'var(--surface-2)',
+                      backgroundColor: done ? 'var(--color-primary)' : 'var(--surface-2)',
                       border: done ? 'none' : dayIdx === TODAY_INDEX ? '1.5px solid var(--surface-3)' : '1.5px solid transparent',
                       display: 'flex',
                       alignItems: 'center',
@@ -161,7 +202,7 @@ export default function HabitsPage() {
                 );
               })}
 
-              {/* Streak */}
+              {/* Streak — Lucide Flame icon, orange color */}
               <div style={{
                 textAlign: 'right',
                 padding: '12px 0',
@@ -171,9 +212,7 @@ export default function HabitsPage() {
                 gap: 4,
               }}>
                 {streak > 0 && (
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--color-accent)" opacity="0.8">
-                    <path d="M6 1C4.5 3.5 4 4 4 5.5A2 2 0 008 5.5C8 4 7.5 3.5 6 1Z"/>
-                  </svg>
+                  <Flame size={12} color="var(--color-accent)" style={{ opacity: 0.8 }} />
                 )}
                 <span style={{
                   fontSize: 'var(--text-caption)',

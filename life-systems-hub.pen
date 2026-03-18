@@ -1,0 +1,4942 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": -6,
+      "y": 16,
+      "name": "Frame",
+      "enabled": false,
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "Iicfj",
+      "x": 0,
+      "y": 800,
+      "name": "Arena — Agent A: Breathing Room",
+      "clip": true,
+      "width": 1280,
+      "height": 1000,
+      "fill": "#09090B",
+      "layout": "vertical",
+      "gap": 48,
+      "padding": [
+        48,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "E4Off",
+          "name": "Greeting Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "children": [
+            {
+              "type": "text",
+              "id": "eKNzk",
+              "name": "Greeting",
+              "fill": "#FAFAFA",
+              "content": "Good morning, Sean",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "700",
+              "letterSpacing": -1
+            },
+            {
+              "type": "text",
+              "id": "NNs1f",
+              "name": "Context Line",
+              "fill": "#A1A1AA",
+              "content": "12-day streak. Your best yet.",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bYyuu",
+          "name": "XP Bar Section",
+          "width": "fill_container",
+          "fill": "#18181B",
+          "cornerRadius": 8,
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            32,
+            36
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "HT29p",
+              "name": "XP Top Row",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Hqb11",
+                  "name": "Badge + Level",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "h1bFC",
+                      "name": "Level Badge",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#3B82F6",
+                      "cornerRadius": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bUowX",
+                          "name": "xpBadgeText",
+                          "fill": "#FAFAFA",
+                          "content": "4",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZGqz9",
+                      "name": "xpLevelLabel",
+                      "fill": "#FAFAFA",
+                      "content": "Level 4 — Veteran",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "xxvQA",
+                  "name": "xpCounterText",
+                  "fill": "#A1A1AA",
+                  "content": "5,100 / 8,200 XP",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "b4AqR",
+              "name": "XP Bar Track",
+              "width": "fill_container",
+              "height": 8,
+              "fill": "#27272A",
+              "cornerRadius": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9Ukm6",
+                  "name": "XP Bar Fill",
+                  "width": 718,
+                  "height": 8,
+                  "fill": "#3B82F6",
+                  "cornerRadius": 4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "2iCUI",
+              "name": "XP Bottom Row",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UVYiV",
+                  "name": "xpNextLabel",
+                  "fill": "#71717A",
+                  "content": "3,100 XP to Level 5 — Elite",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "MjcEm",
+                  "name": "xpPercent",
+                  "fill": "#3B82F6",
+                  "content": "62%",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cdWjL",
+          "name": "Metric Cards Row",
+          "width": "fill_container",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "f4oK0",
+              "name": "Current Streak Card",
+              "width": "fill_container",
+              "fill": "#18181B",
+              "cornerRadius": 8,
+              "stroke": {
+                "align": "inside",
+                "thickness": {
+                  "left": 3
+                },
+                "fill": "#F97316"
+              },
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "x21Rz",
+                  "name": "Streak Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XVJ43",
+                      "name": "streakLabel",
+                      "fill": "#A1A1AA",
+                      "content": "Current Streak",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MSSI3",
+                      "name": "Multiplier Badge",
+                      "fill": "#F9731620",
+                      "cornerRadius": 999,
+                      "gap": 4,
+                      "padding": [
+                        4,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "H3VrQ",
+                          "name": "streakBadgeText",
+                          "fill": "#F97316",
+                          "content": "1.5x",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LUZrE",
+                  "name": "Streak Value",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "7P2zd",
+                      "name": "streakIcon",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "flame",
+                      "iconFontFamily": "lucide",
+                      "fill": "#F97316"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lg1cI",
+                      "name": "streakNum",
+                      "fill": "#FAFAFA",
+                      "content": "12",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700",
+                      "letterSpacing": -2
+                    },
+                    {
+                      "type": "text",
+                      "id": "Yc9P8",
+                      "name": "streakUnit",
+                      "fill": "#71717A",
+                      "content": "days",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pII9H",
+              "name": "Workouts Card",
+              "width": "fill_container",
+              "fill": "#18181B",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VQCju",
+                  "name": "workoutLabel",
+                  "fill": "#A1A1AA",
+                  "content": "Workouts This Week",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "wPBM7",
+                  "name": "Workout Value",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rdDUs",
+                      "name": "workoutNum",
+                      "fill": "#FAFAFA",
+                      "content": "2/3",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700",
+                      "letterSpacing": -2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "qG6vZ",
+                  "name": "workoutSub",
+                  "fill": "#71717A",
+                  "content": "PPL split",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QIoiy",
+              "name": "Budget Card",
+              "width": "fill_container",
+              "fill": "#18181B",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "O1gsp",
+                  "name": "budgetLabel",
+                  "fill": "#A1A1AA",
+                  "content": "Budget Health",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xtUy7",
+                  "name": "budgetStatus",
+                  "fill": "#3B82F6",
+                  "content": "On Track",
+                  "fontFamily": "Inter",
+                  "fontSize": 40,
+                  "fontWeight": "700",
+                  "letterSpacing": -2
+                },
+                {
+                  "type": "text",
+                  "id": "EHyni",
+                  "name": "budgetAmount",
+                  "fill": "#71717A",
+                  "content": "$1,247 of $3,800",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lwI4J",
+          "name": "Todays Quests Section",
+          "width": "fill_container",
+          "fill": "#18181B",
+          "cornerRadius": 8,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            32,
+            36
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "0spAa",
+              "name": "Quests Header",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yQeUb",
+                  "name": "Quests Title Row",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "fnXTE",
+                      "name": "questsIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "zap",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fDL6o",
+                      "name": "questsTitle",
+                      "fill": "#FAFAFA",
+                      "content": "Today's Quests",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "UCtJf",
+                  "name": "questsCounter",
+                  "fill": "#71717A",
+                  "content": "2/5 completed",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "7OsxD",
+              "name": "Divider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#27272A"
+            },
+            {
+              "type": "frame",
+              "id": "9q9n5",
+              "name": "Quests List",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xg8XW",
+                  "name": "Quest 1 - Done",
+                  "width": "fill_container",
+                  "fill": "#1E1E22",
+                  "cornerRadius": 6,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eNEmJ",
+                      "name": "Q1 Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OpJ5a",
+                          "name": "q1Check",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Cd3Y8",
+                          "name": "q1Text",
+                          "fill": "#71717A",
+                          "content": "Morning Workout",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "9VU6x",
+                      "name": "q1Xp",
+                      "fill": "#22C55E",
+                      "content": "+50 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gvM5R",
+                  "name": "Quest 2 - Pending",
+                  "width": "fill_container",
+                  "cornerRadius": 6,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OoYRi",
+                      "name": "Q2 Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "x2uYC",
+                          "name": "q2Circle",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vCrCE",
+                          "name": "q2Text",
+                          "fill": "#FAFAFA",
+                          "content": "Read 20 minutes",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "C5K33",
+                      "name": "q2Xp",
+                      "fill": "#A1A1AA",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C5mtU",
+                  "name": "Quest 3 - Done",
+                  "width": "fill_container",
+                  "fill": "#1E1E22",
+                  "cornerRadius": 6,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rjhvA",
+                      "name": "Q3 Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Yq3dA",
+                          "name": "q3Check",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NOxNa",
+                          "name": "q3Text",
+                          "fill": "#71717A",
+                          "content": "Vault Daily Note",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "yotsM",
+                      "name": "q3Xp",
+                      "fill": "#22C55E",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aOTK3",
+                  "name": "Quest 4 - Pending",
+                  "width": "fill_container",
+                  "cornerRadius": 6,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vI7SZ",
+                      "name": "Q4 Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "StJnh",
+                          "name": "q4Circle",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Iz6pn",
+                          "name": "q4Text",
+                          "fill": "#FAFAFA",
+                          "content": "No unnecessary spending",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "WBeTQ",
+                      "name": "q4Xp",
+                      "fill": "#A1A1AA",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wYqkk",
+                  "name": "Quest 5 - Pending",
+                  "width": "fill_container",
+                  "cornerRadius": 6,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GDgYi",
+                      "name": "Q5 Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "3gAuL",
+                          "name": "q5Circle",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "circle",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LqFwa",
+                          "name": "q5Text",
+                          "fill": "#FAFAFA",
+                          "content": "Evening Reflection",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "s16Ih",
+                      "name": "q5Xp",
+                      "fill": "#A1A1AA",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Vnic8",
+      "x": 1480,
+      "y": 800,
+      "name": "Arena — Agent B: Dense Operator",
+      "clip": true,
+      "width": 1280,
+      "height": 900,
+      "fill": "#09090B",
+      "layout": "vertical",
+      "padding": [
+        20,
+        24
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "IE3lT",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 40,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gwP1N",
+              "name": "Greeting",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "u3WPe",
+                  "name": "greetIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "zap",
+                  "iconFontFamily": "lucide",
+                  "fill": "#F97316"
+                },
+                {
+                  "type": "text",
+                  "id": "rUeae",
+                  "name": "greetText",
+                  "fill": "#FAFAFA",
+                  "content": "Good morning, Sean",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XOYPg",
+                  "name": "divDot",
+                  "fill": "#71717A",
+                  "content": "·",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "9ttB9",
+                  "name": "streakCtx",
+                  "fill": "#A1A1AA",
+                  "content": "12-day streak. Your best yet.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8SA0U",
+              "name": "Right Info",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mEsTi",
+                  "name": "Level Badge",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 6,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "9ViMd",
+                      "name": "lvlIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "shield",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Lj0pV",
+                      "name": "lvlText",
+                      "fill": "#A1A1AA",
+                      "content": "LVL 4 Veteran",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C15dy",
+                  "name": "Streak Badge",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 4,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "wHqYA",
+                      "name": "flameIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "flame",
+                      "iconFontFamily": "lucide",
+                      "fill": "#F97316"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Hk8nT",
+                      "name": "streakNum",
+                      "fill": "#F97316",
+                      "content": "12",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wgO6j",
+                      "name": "Multiplier",
+                      "fill": "#F97316",
+                      "cornerRadius": 8,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "odN0R",
+                          "name": "multText",
+                          "fill": "#09090B",
+                          "content": "1.5x",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "1dNjH",
+          "name": "XP Row",
+          "width": "fill_container",
+          "height": 28,
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "zsSlA",
+              "name": "xpLabel",
+              "fill": "#71717A",
+              "content": "XP",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "DcSl1",
+              "name": "XP Bar BG",
+              "width": "fill_container",
+              "height": 8,
+              "fill": "#18181B",
+              "cornerRadius": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zuLmg",
+                  "name": "XP Bar Fill",
+                  "width": 575,
+                  "height": 8,
+                  "fill": "#3B82F6",
+                  "cornerRadius": 4
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "wKbv3",
+              "name": "xpCounter",
+              "fill": "#A1A1AA",
+              "content": "5,100 / 8,200",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "QSY1h",
+              "name": "xpPct",
+              "fill": "#3B82F6",
+              "content": "62%",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YOVK5",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#27272A"
+        },
+        {
+          "type": "frame",
+          "id": "emfuH",
+          "name": "Main Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 16,
+          "padding": [
+            12,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "QHdBr",
+              "name": "Col Left - Metrics",
+              "width": 320,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JwpfS",
+                  "name": "Hero Streak Card",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "top": 2
+                    },
+                    "fill": "#F97316"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NNOZz",
+                      "name": "Hero Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Qfxq4",
+                          "name": "heroLabel",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "0ZWNE",
+                              "name": "heroFlame",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "flame",
+                              "iconFontFamily": "lucide",
+                              "fill": "#F97316"
+                            },
+                            {
+                              "type": "text",
+                              "id": "eKWFg",
+                              "name": "heroTitle",
+                              "fill": "#A1A1AA",
+                              "content": "Current Streak",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "67qY0",
+                          "name": "heroArrow",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "trending-up",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "4FrbA",
+                      "name": "heroValue",
+                      "fill": "#FAFAFA",
+                      "content": "12 days",
+                      "fontFamily": "Inter",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "0If0x",
+                      "name": "heroSub",
+                      "fill": "#71717A",
+                      "content": "Personal best · Started Feb 28",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "b01Lg",
+                      "name": "Streak Bar BG",
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#27272A",
+                      "cornerRadius": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "8W9h0",
+                          "name": "Streak Bar Fill",
+                          "width": 244,
+                          "height": 4,
+                          "fill": "#F97316",
+                          "cornerRadius": 2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iwtGL",
+                  "name": "Workouts Card",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PbPIT",
+                      "name": "woTop",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "A2Mku",
+                          "name": "woLabel",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "xFiB5",
+                              "name": "woIcon",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "dumbbell",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B82F6"
+                            },
+                            {
+                              "type": "text",
+                              "id": "trZ6l",
+                              "name": "woTitle",
+                              "fill": "#A1A1AA",
+                              "content": "Workouts This Week",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "C43Fg",
+                          "name": "woValue",
+                          "fill": "#FAFAFA",
+                          "content": "2/3",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "IPHcb",
+                      "name": "woSub",
+                      "fill": "#71717A",
+                      "content": "PPL split · Next: Pull day",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bgABk",
+                      "name": "woBar",
+                      "width": "fill_container",
+                      "height": 3,
+                      "fill": "#27272A",
+                      "cornerRadius": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "mL1dK",
+                          "name": "woBarFill",
+                          "width": 192,
+                          "height": 3,
+                          "fill": "#3B82F6",
+                          "cornerRadius": 2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "R3sgb",
+                  "name": "Budget Card",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "LNLpf",
+                      "name": "buTop",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "SsGJX",
+                          "name": "buLabel",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "nh8uX",
+                              "name": "buIcon",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "wallet",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B82F6"
+                            },
+                            {
+                              "type": "text",
+                              "id": "lcDxJ",
+                              "name": "buTitle",
+                              "fill": "#A1A1AA",
+                              "content": "Budget Health",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aNtQe",
+                          "name": "buStatus",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "mrq9q",
+                              "name": "buDot",
+                              "fill": "#22C55E",
+                              "width": 6,
+                              "height": 6
+                            },
+                            {
+                              "type": "text",
+                              "id": "WC4vw",
+                              "name": "buVal",
+                              "fill": "#22C55E",
+                              "content": "On Track",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "DwyJQ",
+                      "name": "buSub",
+                      "fill": "#71717A",
+                      "content": "$1,247 of $3,800 spent",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "11PI1",
+                      "name": "buBar",
+                      "width": "fill_container",
+                      "height": 3,
+                      "fill": "#27272A",
+                      "cornerRadius": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "DQbKY",
+                          "name": "buBarFill",
+                          "width": 94,
+                          "height": 3,
+                          "fill": "#3B82F6",
+                          "cornerRadius": 2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4DBf9",
+                  "name": "Recent Activity",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VbJIR",
+                      "name": "alHead",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "9drYa",
+                          "name": "alTitle",
+                          "fill": "#FAFAFA",
+                          "content": "Recent Activity",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Mnf28",
+                          "name": "alMore",
+                          "fill": "#3B82F6",
+                          "content": "View all",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cDWeA",
+                      "name": "alDiv",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Iy0u3",
+                      "name": "al1",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "5WhKp",
+                          "name": "al1i",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jisZF",
+                          "name": "al1t",
+                          "fill": "#A1A1AA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Morning Workout completed",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1g4nv",
+                          "name": "al1ts",
+                          "fill": "#71717A",
+                          "content": "7:32a",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X6XWE",
+                      "name": "al2",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "i3gmS",
+                          "name": "al2i",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "circle-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3M2me",
+                          "name": "al2t",
+                          "fill": "#A1A1AA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Vault Daily Note synced",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vOIX6",
+                          "name": "al2ts",
+                          "fill": "#71717A",
+                          "content": "8:15a",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ojpbp",
+                      "name": "al3",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "PAaiA",
+                          "name": "al3i",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "trending-up",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3B82F6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "h196a",
+                          "name": "al3t",
+                          "fill": "#A1A1AA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Streak extended to 12 days",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HFLrL",
+                          "name": "al3ts",
+                          "fill": "#71717A",
+                          "content": "8:15a",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Dmuz5",
+                      "name": "al4",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "cjibu",
+                          "name": "al4i",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "award",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F97316"
+                        },
+                        {
+                          "type": "text",
+                          "id": "7ESXq",
+                          "name": "al4t",
+                          "fill": "#A1A1AA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "New personal best streak!",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "L1wfb",
+                          "name": "al4ts",
+                          "fill": "#71717A",
+                          "content": "8:15a",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KJQ0F",
+              "name": "Col Center - Quests",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vD2xf",
+                  "name": "Quest Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "9p7pv",
+                      "name": "qhLeft",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "o4Vlm",
+                          "name": "qhIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "zap",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3B82F6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iLNnl",
+                          "name": "qhTitle",
+                          "fill": "#FAFAFA",
+                          "content": "Today's Quests",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dVYxO",
+                      "name": "qhCount",
+                      "fill": "#18181B",
+                      "cornerRadius": 8,
+                      "gap": 4,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "iZuTd",
+                          "name": "qhNum",
+                          "fill": "#A1A1AA",
+                          "content": "2/5 completed",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7qDR3",
+                  "name": "Quest List",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BN6FS",
+                      "name": "Quest Row 1",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "eK0Tm",
+                          "name": "q1check",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "square-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qkCWM",
+                          "name": "q1name",
+                          "fill": "#71717A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Morning Workout",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "s081W",
+                          "name": "q1xp",
+                          "fill": "#22C55E",
+                          "content": "+50 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "1OFdJ",
+                      "name": "q1div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GsIQF",
+                      "name": "Quest Row 2",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "H6VHT",
+                          "name": "q2check",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "square",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "S5I7L",
+                          "name": "q2name",
+                          "fill": "#FAFAFA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Read 20 minutes",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Adck4",
+                          "name": "q2xp",
+                          "fill": "#3B82F6",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jT2FQ",
+                      "name": "q2div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dn749",
+                      "name": "Quest Row 3",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "gO1jJ",
+                          "name": "q3check",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "square-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#22C55E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oHcyH",
+                          "name": "q3name",
+                          "fill": "#71717A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Vault Daily Note",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NtvU3",
+                          "name": "q3xp",
+                          "fill": "#22C55E",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vXHjh",
+                      "name": "q3div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PwyS2",
+                      "name": "Quest Row 4",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "4Wmo6",
+                          "name": "q4check",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "square",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3V6sX",
+                          "name": "q4name",
+                          "fill": "#FAFAFA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "No unnecessary spending",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rKR7O",
+                          "name": "q4xp",
+                          "fill": "#3B82F6",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cMWaQ",
+                      "name": "q4div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WTpAw",
+                      "name": "Quest Row 5",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lB24j",
+                          "name": "q5check",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "square",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3F3F46"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2pKoR",
+                          "name": "q5name",
+                          "fill": "#FAFAFA",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Evening Reflection",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lBmpH",
+                          "name": "q5xp",
+                          "fill": "#3B82F6",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FDm8o",
+                      "name": "Quest Summary",
+                      "width": "fill_container",
+                      "fill": "#111113",
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zTtxF",
+                          "name": "qSumLeft",
+                          "fill": "#71717A",
+                          "content": "Total available",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GopDr",
+                          "name": "qSumRight",
+                          "fill": "#3B82F6",
+                          "content": "150 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Mf8AR",
+                  "name": "Weekly Activity",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "b3cC7",
+                      "name": "wkHead",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jhWjD",
+                          "name": "wkTitle",
+                          "fill": "#FAFAFA",
+                          "content": "Weekly Activity",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zGUYS",
+                          "name": "wkSub",
+                          "fill": "#71717A",
+                          "content": "Mar 5 - Mar 11",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TABBC",
+                      "name": "Bar Chart",
+                      "width": "fill_container",
+                      "height": 80,
+                      "gap": 8,
+                      "justifyContent": "space_between",
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dNnhs",
+                          "name": "d1wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "14lwd",
+                              "name": "d1bar",
+                              "width": "fill_container",
+                              "height": 60,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "BW7HK",
+                              "name": "d1lbl",
+                              "fill": "#71717A",
+                              "content": "M",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "V7Ou0",
+                          "name": "d2wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "MUQ97",
+                              "name": "d2bar",
+                              "width": "fill_container",
+                              "height": 80,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "spWDb",
+                              "name": "d2lbl",
+                              "fill": "#71717A",
+                              "content": "T",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "151fP",
+                          "name": "d3wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "nGLnC",
+                              "name": "d3bar",
+                              "width": "fill_container",
+                              "height": 48,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "TZQSu",
+                              "name": "d3lbl",
+                              "fill": "#71717A",
+                              "content": "W",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "i7oXJ",
+                          "name": "d4wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "yvPT8",
+                              "name": "d4bar",
+                              "width": "fill_container",
+                              "height": 68,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "6Osam",
+                              "name": "d4lbl",
+                              "fill": "#71717A",
+                              "content": "T",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FI2Kf",
+                          "name": "d5wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kL299",
+                              "name": "d5bar",
+                              "width": "fill_container",
+                              "height": 40,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "e28ji",
+                              "name": "d5lbl",
+                              "fill": "#71717A",
+                              "content": "F",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "oLPDV",
+                          "name": "d6wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "VFDg2",
+                              "name": "d6bar",
+                              "width": "fill_container",
+                              "height": 72,
+                              "fill": "#F97316",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "dN6Mx",
+                              "name": "d6lbl",
+                              "fill": "#71717A",
+                              "content": "S",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UWpBi",
+                          "name": "d7wrap",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "justifyContent": "end",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "7XaoV",
+                              "name": "d7bar",
+                              "width": "fill_container",
+                              "height": 24,
+                              "fill": "#27272A",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "O0SuT",
+                              "name": "d7lbl",
+                              "fill": "#FAFAFA",
+                              "content": "S",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "4OHmU",
+              "name": "Col Right - Summary",
+              "width": 280,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "l8Zt9",
+                  "name": "XP Summary",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QmRXL",
+                      "name": "sumHead",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LEO5a",
+                          "name": "sumTitle",
+                          "fill": "#FAFAFA",
+                          "content": "XP Breakdown",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fBXqj",
+                          "name": "sumTotal",
+                          "fill": "#71717A",
+                          "content": "150 XP possible",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yYcDu",
+                      "name": "sumDiv",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9sY4i",
+                      "name": "r1",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "poadc",
+                          "name": "r1l",
+                          "fill": "#71717A",
+                          "content": "Morning Workout",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kdAa0",
+                          "name": "r1v",
+                          "fill": "#22C55E",
+                          "content": "+50 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pAsfE",
+                      "name": "r2",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ykNxE",
+                          "name": "r2l",
+                          "fill": "#71717A",
+                          "content": "Vault Daily Note",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mBUcA",
+                          "name": "r2v",
+                          "fill": "#22C55E",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6Y4cQ",
+                      "name": "sumDiv2",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LZtZj",
+                      "name": "r3",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JKhNa",
+                          "name": "r3l",
+                          "fill": "#A1A1AA",
+                          "content": "Read 20 minutes",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "stkUe",
+                          "name": "r3v",
+                          "fill": "#3F3F46",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mJnUI",
+                      "name": "r4",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ul7UV",
+                          "name": "r4l",
+                          "fill": "#A1A1AA",
+                          "content": "No spending",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GzmZo",
+                          "name": "r4v",
+                          "fill": "#3F3F46",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "j2td8",
+                      "name": "r5",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fCK1f",
+                          "name": "r5l",
+                          "fill": "#A1A1AA",
+                          "content": "Evening Reflection",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "32yQU",
+                          "name": "r5v",
+                          "fill": "#3F3F46",
+                          "content": "+25 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "thIDt",
+                      "name": "sumDiv3",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MW5uc",
+                      "name": "earnRow",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C7qXa",
+                          "name": "earnL",
+                          "fill": "#FAFAFA",
+                          "content": "Earned today",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "PLy8X",
+                          "name": "earnV",
+                          "fill": "#3B82F6",
+                          "content": "75 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "To7xA",
+                  "name": "Level Progress",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eGwL4",
+                      "name": "lvlHead",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IKI0s",
+                          "name": "lvlTitle",
+                          "fill": "#FAFAFA",
+                          "content": "Level Progress",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2Ylym",
+                          "name": "lvlPct",
+                          "fill": "#3B82F6",
+                          "content": "62%",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EgKxE",
+                      "name": "lvlRow",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n22HS",
+                          "name": "lvlCur",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "hHowy",
+                              "name": "lvlBadge",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "shield",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B82F6"
+                            },
+                            {
+                              "type": "text",
+                              "id": "YQrFR",
+                              "name": "lvlCurTxt",
+                              "fill": "#FAFAFA",
+                              "content": "LVL 4",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "qddgq",
+                          "name": "lvlArrow",
+                          "width": 12,
+                          "height": 12,
+                          "iconFontName": "arrow-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#71717A"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "efdGO",
+                          "name": "lvlNxt",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "vyT6t",
+                              "name": "lvlNxtBadge",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "shield",
+                              "iconFontFamily": "lucide",
+                              "fill": "#71717A"
+                            },
+                            {
+                              "type": "text",
+                              "id": "6M9YI",
+                              "name": "lvlNxtTxt",
+                              "fill": "#71717A",
+                              "content": "LVL 5",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5U9AD",
+                      "name": "lvlBarBg",
+                      "width": "fill_container",
+                      "height": 6,
+                      "fill": "#27272A",
+                      "cornerRadius": 3,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "FKqXF",
+                          "name": "lvlBarFill",
+                          "width": 154,
+                          "height": 6,
+                          "fill": "#3B82F6",
+                          "cornerRadius": 3
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QJRbC",
+                      "name": "lvlNames",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4tRsh",
+                          "name": "lvlNameCur",
+                          "fill": "#A1A1AA",
+                          "content": "Veteran",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "8HHHC",
+                          "name": "lvlNameNxt",
+                          "fill": "#71717A",
+                          "content": "Elite",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HKQr3",
+                  "name": "Quick Stats",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i3wr4",
+                      "name": "stHead",
+                      "fill": "#FAFAFA",
+                      "content": "Quick Stats",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nD2hc",
+                      "name": "stDiv",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#27272A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MVNC4",
+                      "name": "st1",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "U0Vko",
+                          "name": "st1l",
+                          "fill": "#A1A1AA",
+                          "content": "Total XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "eO5bn",
+                          "name": "st1v",
+                          "fill": "#FAFAFA",
+                          "content": "5,100",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "15yIi",
+                      "name": "st2",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rYFvH",
+                          "name": "st2l",
+                          "fill": "#A1A1AA",
+                          "content": "Level",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cU0zz",
+                          "name": "st2v",
+                          "fill": "#3B82F6",
+                          "content": "4 — Veteran",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UL0mg",
+                      "name": "st3",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "g1ym5",
+                          "name": "st3l",
+                          "fill": "#A1A1AA",
+                          "content": "To Level 5",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1Pp5v",
+                          "name": "st3v",
+                          "fill": "#71717A",
+                          "content": "3,100 XP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vzcMJ",
+                      "name": "st4",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "greFr",
+                          "name": "st4l",
+                          "fill": "#A1A1AA",
+                          "content": "Best Streak",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1f4e9",
+                          "name": "st4v",
+                          "fill": "#F97316",
+                          "content": "12 days",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NXpYd",
+                      "name": "st5",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "hnzEt",
+                          "name": "st5l",
+                          "fill": "#A1A1AA",
+                          "content": "Completion Rate",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Pqjti",
+                          "name": "st5v",
+                          "fill": "#22C55E",
+                          "content": "78%",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jVKTJ",
+                      "name": "st6",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "aSPSv",
+                          "name": "st6l",
+                          "fill": "#A1A1AA",
+                          "content": "Multiplier",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lUgyV",
+                          "name": "st6v",
+                          "fill": "#F97316",
+                          "content": "1.5x",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "YnQKo",
+      "x": 2960,
+      "y": 800,
+      "name": "Arena — Agent C: Narrative Flow",
+      "clip": true,
+      "width": 1280,
+      "fill": "#09090B",
+      "layout": "vertical",
+      "gap": 48,
+      "padding": [
+        64,
+        0,
+        48,
+        0
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2YMBT",
+          "name": "Hero Section",
+          "width": 720,
+          "layout": "vertical",
+          "gap": 32,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hWqRb",
+              "name": "Greeting Row",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "L4n5I",
+                  "name": "Top Accent Line",
+                  "fill": "#3B82F6",
+                  "width": 40,
+                  "height": 2
+                },
+                {
+                  "type": "text",
+                  "id": "uK4mf",
+                  "name": "Context Line",
+                  "fill": "#A1A1AA",
+                  "content": "12-DAY STREAK  ·  YOUR BEST YET",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "iPlrV",
+                  "name": "Greeting",
+                  "fill": "#FAFAFA",
+                  "content": "Good morning, Sean",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 40,
+                  "fontWeight": "700",
+                  "letterSpacing": -1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SWnzR",
+              "name": "Streak Badge Row",
+              "width": "fill_container",
+              "gap": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "TUoA7",
+                  "name": "flameIcon",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "flame",
+                  "iconFontFamily": "lucide",
+                  "fill": "#F97316"
+                },
+                {
+                  "type": "text",
+                  "id": "QZ6OQ",
+                  "name": "streakNum",
+                  "fill": "#F97316",
+                  "content": "12",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Ajwsy",
+                  "name": "streakLabel",
+                  "fill": "#A1A1AA",
+                  "content": "day streak",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "fkWB5",
+                  "name": "Multiplier Badge",
+                  "fill": "#F97316",
+                  "cornerRadius": 999,
+                  "padding": [
+                    4,
+                    12
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5qQJR",
+                      "name": "multText",
+                      "fill": "#FAFAFA",
+                      "content": "1.5x",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "4VTyi",
+              "name": "XP Bar Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iqakV",
+                  "name": "XP Top Row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "RsDHa",
+                      "name": "Level Left",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "IBckT",
+                          "name": "Level Badge",
+                          "width": 32,
+                          "height": 32,
+                          "fill": "#3B82F6",
+                          "cornerRadius": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "m1NDC",
+                              "name": "levelNum",
+                              "fill": "#FAFAFA",
+                              "content": "4",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "gqwj0",
+                          "name": "levelLabel",
+                          "fill": "#FAFAFA",
+                          "content": "Level 4 — Veteran",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "kMDv6",
+                      "name": "xpCounter",
+                      "fill": "#A1A1AA",
+                      "content": "5,100 / 8,200 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ongvU",
+                  "name": "XP Bar Background",
+                  "width": "fill_container",
+                  "height": 8,
+                  "fill": "#3F3F46",
+                  "cornerRadius": 4,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "dTJRY",
+                      "x": 0,
+                      "y": 0,
+                      "name": "XP Bar Fill",
+                      "fill": "#3B82F6",
+                      "width": 447,
+                      "height": 8
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Fe1mk",
+                  "name": "XP Bottom Row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JagXA",
+                      "name": "xpBottomLeft",
+                      "fill": "#71717A",
+                      "content": "3,100 XP to Level 5",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ETJ6Y",
+                      "name": "xpBottomRight",
+                      "fill": "#3B82F6",
+                      "content": "Elite",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "TzqPu",
+          "name": "Section Divider",
+          "fill": "#3F3F46",
+          "width": 720,
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "0Fctk",
+          "name": "Quests Section",
+          "width": 720,
+          "layout": "vertical",
+          "gap": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "0ONzh",
+              "name": "Quest Header",
+              "width": "fill_container",
+              "gap": 12,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ObLJY",
+                  "name": "Quest Title Row",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "sBPrM",
+                      "name": "questIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "zap",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "text",
+                      "id": "oJb5g",
+                      "name": "questTitle",
+                      "fill": "#FAFAFA",
+                      "content": "Today's Quests",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jqdgJ",
+                  "name": "Quest Progress Bar",
+                  "gap": 3,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "lSwzb",
+                      "name": "pip1",
+                      "fill": "#22C55E",
+                      "width": 24,
+                      "height": 3
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "1vnFw",
+                      "name": "pip2",
+                      "fill": "#22C55E",
+                      "width": 24,
+                      "height": 3
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "so14I",
+                      "name": "pip3",
+                      "fill": "#3F3F46",
+                      "width": 24,
+                      "height": 3
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "i0dex",
+                      "name": "pip4",
+                      "fill": "#3F3F46",
+                      "width": 24,
+                      "height": 3
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "1Colg",
+                      "name": "pip5",
+                      "fill": "#3F3F46",
+                      "width": 24,
+                      "height": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZTkmz",
+                  "name": "questCounter",
+                  "fill": "#71717A",
+                  "content": "2 / 5 completed",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "m80Nn",
+              "name": "Quest List",
+              "width": "fill_container",
+              "fill": "#18181B",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#3F3F46"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9N5Xc",
+                  "name": "Quest 1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "qHAi8",
+                      "name": "q1check",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle-check",
+                      "iconFontFamily": "lucide",
+                      "fill": "#22C55E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KJZwR",
+                      "name": "q1name",
+                      "fill": "#A1A1AA",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Morning Workout",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "6ypwK",
+                      "name": "q1xp",
+                      "fill": "#22C55E",
+                      "content": "+50 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X8kM6",
+                  "name": "Quest 2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "h8pyR",
+                      "name": "q2check",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3F3F46"
+                    },
+                    {
+                      "type": "text",
+                      "id": "0GxRq",
+                      "name": "q2name",
+                      "fill": "#FAFAFA",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Read 20 minutes",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SEtUo",
+                      "name": "q2xp",
+                      "fill": "#3B82F6",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q6vUg",
+                  "name": "Quest 3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "aeMG9",
+                      "name": "q3check",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle-check",
+                      "iconFontFamily": "lucide",
+                      "fill": "#22C55E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TTsZ9",
+                      "name": "q3name",
+                      "fill": "#A1A1AA",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Vault Daily Note",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zTMFp",
+                      "name": "q3xp",
+                      "fill": "#22C55E",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "htDGi",
+                  "name": "Quest 4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#3F3F46"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "XWuAI",
+                      "name": "q4check",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3F3F46"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ore8F",
+                      "name": "q4name",
+                      "fill": "#FAFAFA",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "No unnecessary spending",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zxBVF",
+                      "name": "q4xp",
+                      "fill": "#3B82F6",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oYpOo",
+                  "name": "Quest 5",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "Ect3V",
+                      "name": "q5check",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "circle",
+                      "iconFontFamily": "lucide",
+                      "fill": "#3F3F46"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IWrTZ",
+                      "name": "q5name",
+                      "fill": "#FAFAFA",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Evening Reflection",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qEkYQ",
+                      "name": "q5xp",
+                      "fill": "#3B82F6",
+                      "content": "+25 XP",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TWsqT",
+          "name": "Metrics Section",
+          "width": 720,
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "mYn1W",
+              "name": "metricsHeader",
+              "fill": "#71717A",
+              "content": "AT A GLANCE",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "vLbbO",
+              "name": "Metrics Grid",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SMbjh",
+                  "name": "Hero Metric - Streak",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": {
+                      "left": 3
+                    },
+                    "fill": "#F97316"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aYqTY",
+                      "name": "Hero Card Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gSEuQ",
+                          "name": "heroCardLabel",
+                          "fill": "#A1A1AA",
+                          "content": "Current Streak",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "AwxEf",
+                          "name": "heroCardIcon",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "flame",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F97316"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "IW1eK",
+                      "name": "heroCardValue",
+                      "fill": "#F97316",
+                      "content": "12 days",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hX3JA",
+                      "name": "heroCardSub",
+                      "fill": "#71717A",
+                      "content": "Personal best",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "h8ssX",
+                  "name": "Right Column",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "xbLO2",
+                      "name": "Workouts Card",
+                      "width": "fill_container",
+                      "fill": "#18181B",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#3F3F46"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "mJwfH",
+                          "name": "workoutTop",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "zJu4I",
+                              "name": "workoutLabel",
+                              "fill": "#A1A1AA",
+                              "content": "Workouts This Week",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "WQw9A",
+                              "name": "workoutIcon",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "dumbbell",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B82F6"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ILFn5",
+                          "name": "workoutValue",
+                          "fill": "#FAFAFA",
+                          "content": "2 / 3",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gMlT8",
+                          "name": "workoutSub",
+                          "fill": "#71717A",
+                          "content": "PPL split",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "1KBi5",
+                      "name": "Budget Card",
+                      "width": "fill_container",
+                      "fill": "#18181B",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#3F3F46"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "FeAmr",
+                          "name": "budgetTop",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NCLyI",
+                              "name": "budgetLabel",
+                              "fill": "#A1A1AA",
+                              "content": "Budget Health",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "2fHI8",
+                              "name": "budgetIcon",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "wallet",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B82F6"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "M7orO",
+                          "name": "budgetValue",
+                          "fill": "#22C55E",
+                          "content": "On Track",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hye2r",
+                          "name": "budgetSub",
+                          "fill": "#71717A",
+                          "content": "$1,247 of $3,800",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ITqNA",
+                          "name": "Budget Bar BG",
+                          "width": "fill_container",
+                          "height": 4,
+                          "fill": "#3F3F46",
+                          "cornerRadius": 2,
+                          "layout": "none",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 2,
+                              "id": "pZNnP",
+                              "x": 0,
+                              "y": 0,
+                              "name": "Budget Bar Fill",
+                              "fill": "#3B82F6",
+                              "width": 80,
+                              "height": 4
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "gO6KI",
+      "x": 4440,
+      "y": 800,
+      "name": "Arena — Agent D: RPG Menu",
+      "width": 1280,
+      "height": 900,
+      "fill": "#09090B",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "type": "frame",
+          "id": "mDUFM",
+          "name": "Top Row",
+          "width": "fill_container",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "By8We",
+              "name": "Character Panel",
+              "width": "fill_container",
+              "fill": "#18181B",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FABAa",
+                  "name": "Character Header",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "axoOS",
+                      "name": "Level Badge",
+                      "fill": "#09090B",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "w4iAI",
+                          "name": "lvlNum",
+                          "fill": "#3B82F6",
+                          "content": "4",
+                          "textAlign": "center",
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ESQLe",
+                          "name": "lvlLabel",
+                          "fill": "#71717A",
+                          "content": "LVL",
+                          "textAlign": "center",
+                          "fontFamily": "Inter",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "lrcyg",
+                      "name": "shieldIcon",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dnHFW",
+                      "name": "Name Column",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "09p1G",
+                          "name": "greeting",
+                          "fill": "#FAFAFA",
+                          "content": "Good morning, Sean",
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cAe7f",
+                          "name": "classLabel",
+                          "fill": "#3B82F6",
+                          "content": "LEVEL 4 · VETERAN",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2fK17",
+                      "name": "Streak Badge",
+                      "fill": "#18181B",
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "0YziM",
+                          "name": "flameIcon",
+                          "width": 0,
+                          "height": 0,
+                          "iconFontFamily": "lucide",
+                          "fill": "#F97316"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zTGeO",
+                          "name": "streakNum",
+                          "fill": "#F97316",
+                          "content": "12",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "01afy",
+                          "name": "streakLabel",
+                          "fill": "#A1A1AA",
+                          "content": "DAY STREAK",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "73DzO",
+                          "name": "Multiplier",
+                          "fill": "#F97316",
+                          "cornerRadius": 4,
+                          "padding": [
+                            4,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "bOQbI",
+                              "name": "multText",
+                              "fill": "#09090B",
+                              "content": "1.5x",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i7AtG",
+                  "name": "XP Section",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5jBde",
+                      "name": "XP Header",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "FIczG",
+                          "name": "xpIcon",
+                          "width": 0,
+                          "height": 0,
+                          "iconFontFamily": "lucide",
+                          "fill": "#3B82F6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bupAd",
+                          "name": "xpTitle",
+                          "fill": "#A1A1AA",
+                          "content": "EXPERIENCE",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "BEHsE",
+                          "name": "xpNums",
+                          "fill": "#FAFAFA",
+                          "content": "5,100 / 8,200 XP",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FdZ6a",
+                      "name": "XP Bar Background",
+                      "width": "fill_container",
+                      "height": 24,
+                      "fill": "#09090B",
+                      "cornerRadius": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "4LHOz",
+                          "name": "XP Bar Fill",
+                          "width": 460,
+                          "height": 24,
+                          "fill": "#3B82F6",
+                          "cornerRadius": 4
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Cllyg",
+                      "name": "XP Footer",
+                      "width": "fill_container",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C9HeP",
+                          "name": "lvlCurrent",
+                          "fill": "#71717A",
+                          "content": "LVL 4 — Veteran",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "pTJE3",
+                          "name": "lvlNext",
+                          "fill": "#71717A",
+                          "content": "LVL 5 — Elite",
+                          "textAlign": "right",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qqVJU",
+          "name": "Bottom Row",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Qd7bB",
+              "name": "Stats Column",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "teqc0",
+                  "name": "Stats Header",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "9YScR",
+                      "name": "statsIcon",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "text",
+                      "id": "57KdC",
+                      "name": "statsTitle",
+                      "fill": "#FAFAFA",
+                      "content": "ATTRIBUTES",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iuSsH",
+                  "name": "Daily Summary",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "fPIWl",
+                      "name": "summIcon",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hwTHe",
+                      "name": "Summary Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TAmTk",
+                          "name": "summLabel",
+                          "fill": "#71717A",
+                          "content": "TODAY'S FOCUS",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "1txpQ",
+                          "name": "summVal",
+                          "fill": "#FAFAFA",
+                          "content": "Tue, March 11",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mUCl6",
+                          "name": "summSub",
+                          "fill": "#A1A1AA",
+                          "content": "5 quests remaining",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WfWV3",
+                  "name": "Streak Stat",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 16,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "4CB07",
+                      "name": "streakIconLeft",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#F97316"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ClONl",
+                      "name": "Streak Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SGjSr",
+                          "name": "streakStatLabel",
+                          "fill": "#71717A",
+                          "content": "CURRENT STREAK",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "V4d4U",
+                          "name": "streakStatVal",
+                          "fill": "#F97316",
+                          "content": "12 days",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sD6xm",
+                          "name": "Streak Progress Bar",
+                          "width": "fill_container",
+                          "height": 6,
+                          "fill": "#3F3F46",
+                          "cornerRadius": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "oz0Du",
+                              "name": "Streak Fill",
+                              "width": 200,
+                              "height": 6,
+                              "fill": "#F97316",
+                              "cornerRadius": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FQ3Wa",
+                      "name": "Streak Bar",
+                      "width": 4,
+                      "height": "fill_container",
+                      "fill": "#F97316",
+                      "cornerRadius": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rZe90",
+                  "name": "Workout Stat",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 16,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "gPMb5",
+                      "name": "workoutIcon",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xkBiD",
+                      "name": "Workout Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qxQ4l",
+                          "name": "workoutLabel",
+                          "fill": "#71717A",
+                          "content": "WORKOUTS THIS WEEK",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "z8fur",
+                          "name": "workoutVal",
+                          "fill": "#FAFAFA",
+                          "content": "2 / 3",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZF50c",
+                          "name": "workoutSub",
+                          "fill": "#A1A1AA",
+                          "content": "PPL split",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pbdfG",
+                          "name": "Workout Progress Bar",
+                          "width": "fill_container",
+                          "height": 6,
+                          "fill": "#3F3F46",
+                          "cornerRadius": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "yKznl",
+                              "name": "Workout Fill",
+                              "width": 180,
+                              "height": 6,
+                              "fill": "#3B82F6",
+                              "cornerRadius": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JBD0I",
+                      "name": "Workout Bar",
+                      "width": 4,
+                      "height": "fill_container",
+                      "fill": "#3B82F6",
+                      "cornerRadius": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lNQlO",
+                  "name": "Budget Stat",
+                  "width": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "gap": 16,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "xhJMs",
+                      "name": "budgetIcon",
+                      "width": 0,
+                      "height": 0,
+                      "iconFontFamily": "lucide",
+                      "fill": "#3B82F6"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IOUW5",
+                      "name": "Budget Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "aNumk",
+                          "name": "budgetLabel",
+                          "fill": "#71717A",
+                          "content": "BUDGET HEALTH",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "2vlzq",
+                          "name": "budgetVal",
+                          "fill": "#22C55E",
+                          "content": "On Track",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "VWb9E",
+                          "name": "budgetSub",
+                          "fill": "#A1A1AA",
+                          "content": "$1,247 of $3,800",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "RGlvA",
+                          "name": "Budget Progress Bar",
+                          "width": "fill_container",
+                          "height": 6,
+                          "fill": "#3F3F46",
+                          "cornerRadius": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "JO6NP",
+                              "name": "Budget Fill",
+                              "width": 90,
+                              "height": 6,
+                              "fill": "#22C55E",
+                              "cornerRadius": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "M42k8",
+                      "name": "Budget Bar",
+                      "width": 4,
+                      "height": "fill_container",
+                      "fill": "#22C55E",
+                      "cornerRadius": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rlNxA",
+              "name": "Quest Log Column",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CGLkI",
+                  "name": "Quest Log Panel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#18181B",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "J2Vpa",
+                      "name": "Quest Header",
+                      "width": "fill_container",
+                      "fill": "#18181B",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Dmqyp",
+                          "name": "questIcon",
+                          "width": 0,
+                          "height": 0,
+                          "iconFontFamily": "lucide",
+                          "fill": "#3B82F6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QnHZA",
+                          "name": "questTitle",
+                          "fill": "#FAFAFA",
+                          "content": "QUEST LOG",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "frame",
+                          "id": "N8KPb",
+                          "name": "Quest Counter",
+                          "fill": "#3B82F6",
+                          "cornerRadius": 4,
+                          "padding": [
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wTTEe",
+                              "name": "questCountText",
+                              "fill": "#FAFAFA",
+                              "content": "2 / 5",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "7I4jG",
+                      "name": "Quest List",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qkL8y",
+                          "name": "Quest 1",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "padding": [
+                            14,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "N8iLO",
+                              "name": "q1check",
+                              "width": 0,
+                              "height": 0,
+                              "iconFontFamily": "lucide",
+                              "fill": "#22C55E"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "MLhUL",
+                              "name": "Q1 Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 1,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Uamld",
+                                  "name": "q1name",
+                                  "fill": "#FAFAFA",
+                                  "content": "Morning Workout",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "wFpKP",
+                                  "name": "q1sub",
+                                  "fill": "#22C55E",
+                                  "content": "COMPLETED",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "600",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "hkjqk",
+                              "name": "q1xp",
+                              "fill": "#22C55E",
+                              "content": "+50 XP",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "kJruq",
+                          "name": "Quest 2",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "padding": [
+                            14,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "DW34G",
+                              "name": "q2check",
+                              "width": 0,
+                              "height": 0,
+                              "iconFontFamily": "lucide",
+                              "fill": "#3F3F46"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "iLyeo",
+                              "name": "Q2 Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 1,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "1isb5",
+                                  "name": "q2name",
+                                  "fill": "#FAFAFA",
+                                  "content": "Read 20 minutes",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "m2Wbu",
+                                  "name": "q2sub",
+                                  "fill": "#71717A",
+                                  "content": "PENDING",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "600",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "6Qt5e",
+                              "name": "q2xp",
+                              "fill": "#A1A1AA",
+                              "content": "+25 XP",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eBIFg",
+                          "name": "Quest 3",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "padding": [
+                            14,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "idCHK",
+                              "name": "q3check",
+                              "width": 0,
+                              "height": 0,
+                              "iconFontFamily": "lucide",
+                              "fill": "#22C55E"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ZzOQM",
+                              "name": "Q3 Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 1,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "1AVB0",
+                                  "name": "q3name",
+                                  "fill": "#FAFAFA",
+                                  "content": "Vault Daily Note",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Xwe5i",
+                                  "name": "q3sub",
+                                  "fill": "#22C55E",
+                                  "content": "COMPLETED",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "600",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Wq99E",
+                              "name": "q3xp",
+                              "fill": "#22C55E",
+                              "content": "+25 XP",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "5gZta",
+                          "name": "Quest 4",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "padding": [
+                            14,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "r6sZB",
+                              "name": "q4check",
+                              "width": 0,
+                              "height": 0,
+                              "iconFontFamily": "lucide",
+                              "fill": "#3F3F46"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "k11Qr",
+                              "name": "Q4 Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 1,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "OJStG",
+                                  "name": "q4name",
+                                  "fill": "#FAFAFA",
+                                  "content": "No unnecessary spending",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "hsBqh",
+                                  "name": "q4sub",
+                                  "fill": "#71717A",
+                                  "content": "PENDING",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "600",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rgNKd",
+                              "name": "q4xp",
+                              "fill": "#A1A1AA",
+                              "content": "+25 XP",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "IqzAj",
+                          "name": "Quest 5",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "padding": [
+                            14,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "5t9Dm",
+                              "name": "q5check",
+                              "width": 0,
+                              "height": 0,
+                              "iconFontFamily": "lucide",
+                              "fill": "#3F3F46"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "f5obk",
+                              "name": "Q5 Info",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 1,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Dtvpn",
+                                  "name": "q5name",
+                                  "fill": "#FAFAFA",
+                                  "content": "Evening Reflection",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "01VuW",
+                                  "name": "q5sub",
+                                  "fill": "#71717A",
+                                  "content": "PENDING",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "600",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "1JmWM",
+                              "name": "q5xp",
+                              "fill": "#A1A1AA",
+                              "content": "+25 XP",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xyHXy",
+                      "name": "Quest Footer",
+                      "width": "fill_container",
+                      "fill": "#09090B",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "GMEAT",
+                          "name": "footerIcon",
+                          "width": 0,
+                          "height": 0,
+                          "iconFontFamily": "lucide",
+                          "fill": "#F97316"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LTteh",
+                          "name": "footerLabel",
+                          "fill": "#A1A1AA",
+                          "content": "TODAY'S XP EARNED",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "WSI2Z",
+                          "name": "footerVal",
+                          "fill": "#F97316",
+                          "content": "+75 XP",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
